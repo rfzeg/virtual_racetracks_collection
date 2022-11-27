@@ -10,12 +10,13 @@ We use GitHub to host code, to track issues, as well as accept pull requests.
 Pull requests are the best way to contribute a new virtual race track. We actively welcome your pull requests. Please perform the following steps:
 
 1. Fork the repo and create your branch from `master`.
-2. Whenever you want to contribute a new race track, please create a new branch with name 'race-track-' followed by 8 random alphanumeric characters.
+2. Whenever you want to contribute a new race track, please **create a new branch** with name 'race-track-' followed by 8 random alphanumeric characters.    Always make a new branch, this is a good habit to get in, and will make your life easier.  
 3. All race tracks contribuited should be located inside the `launch` folder.
 4. Your race track launch file should have the same name as the branch with extension `.launch` at the end.
 4. Ensure the race track displays correctly in Rviz.
 5. Make sure your commits do not delete submissions from others.
 6. Submit your pull request!
+7. Sometimes a PR in review might get a comment. Please be responsive to any questions and comments or otherwise you PR will not be merged.  
 
 **Tip to write a great pull request**:
 
