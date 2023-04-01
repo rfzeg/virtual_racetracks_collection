@@ -1,0 +1,51 @@
+<launch>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="0 0 0 0 0 0 map odom" /> 
+  <arg name="h" value="header: {frame_id: 'map', seq: 0, stamp: {nsecs: 0, secs: 0}}" />
+  <arg name="orientation" value="orientation: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}" />
+  <arg name="scale" value="scale: {x: 0.2, y: 0.2, z: 0.2}" />
+  <arg name="color" value="color: {a: 1.0, b: 1.0, g: 0.0, r: 0.0}"/>
+  <arg name="position" value="position: {x: 0.0, y: 0.0, z: 0.0}"/>
+  <arg name="pose" value="pose: {$(arg orientation), $(arg position)}"/>
+  <arg name="lt" value="lifetime: {nsecs: 0, secs: 0}"/>
+  <!-- start of race track coordinates -->
+  <arg name="p1" value="{x: 3.0, y: 6.0, z: 0.0}"/>
+  <arg name="p2" value="{x: 3.0, y: 2.0, z: 0.0}"/>
+  <arg name="p3" value="{x: 3.3, y: 1.3, z: 0.0}"/>
+  <arg name="p4" value="{x: 4.0, y: 1.0, z: 0.0}"/>
+  <arg name="p5" value="{x: 4.3, y: 1.3, z: 0.0}"/>
+  <arg name="p6" value="{x: 4.0, y: 2.0, z: 0.0}"/>
+  <arg name="p7" value="{x: 4.0, y: 3.0, z: 0.0}"/>
+  <arg name="p8" value="{x: 5.0, y: 3.5, z: 0.0}"/>
+  <arg name="p9" value="{x: 6.0, y: 3.2, z: 0.0}"/>
+  <arg name="p10" value="{x: 6.7, y: 2.5, z: 0.0}"/>
+  <arg name="p11" value="{x: 6.5, y: 1.5, z: 0.0}"/>
+  <arg name="p12" value="{x: 6.8, y: 0.8, z: 0.0}"/>
+  <arg name="p13" value="{x: 8.0, y: 0.5, z: 0.0}"/>
+  <arg name="p14" value="{x: 8.5, y: 1.0, z: 0.0}"/>
+  <arg name="p15" value="{x: 8.0, y: 3.5, z: 0.0}"/>
+  <arg name="p16" value="{x: 4.0, y: 4.3, z: 0.0}"/>
+  <arg name="p17" value="{x: 3.7, y: 4.7, z: 0.0}"/>
+  <arg name="p18" value="{x: 3.7, y: 5.2, z: 0.0}"/>
+  <arg name="p19" value="{x: 4.0, y: 5.7, z: 0.0}"/>
+  <arg name="p20" value="{x: 6.0, y: 5.7, z: 0.0}"/>
+  <arg name="p21" value="{x: 6.5, y: 6.5, z: 0.0}"/>
+  <arg name="p22" value="{x: 6.3, y: 7.5, z: 0.0}"/>
+  <arg name="p23" value="{x: 6.0, y: 8.0, z: 0.0}"/>
+  <arg name="p24" value="{x: 4.5, y: 7.6, z: 0.0}"/>
+  <arg name="p25" value="{x: 4.0, y: 7.9, z: 0.0}"/>
+  <arg name="p26" value="{x: 3.9, y: 8.3, z: 0.0}"/>
+  <arg name="p27" value="{x: 3.7, y: 9.5, z: 0.0}"/>
+  <arg name="p28" value="{x: 3.4, y: 9.7, z: 0.0}"/>
+  <arg name="p29" value="{x: 3.0, y: 9.5, z: 0.0}"/>
+  <arg name="p30" value="{x: 3.0, y: 6.0, z: 0.0}"/>
+  <!-- end of race track coordinates -->
+
+  <!-- list of points that draw the racetrack -->
+  <arg name="pts" value="points: [$(arg p1),$(arg p2),$(arg p3),$(arg p4),$(arg p5),$(arg p6),$(arg p7),$(arg p8),$(arg p9),$(arg p10),$(arg p11),$(arg p12),$(arg p13),$(arg p14),$(arg p15),
+        $(arg p16),$(arg p17),$(arg p18),$(arg p19),$(arg p20),$(arg p21),$(arg p22),$(arg p23),$(arg p24),$(arg p25),$(arg p26),$(arg p27),$(arg p28),$(arg p29),$(arg p30)]"/>  
+  
+  <arg name="marker" value="'{$(arg h), ns: 'MWS', id: 0, type: 4, action: 0, $(arg pose), $(arg scale), $(arg color), $(arg lt), $(arg pts)}'" />
+  <node name="pub1" pkg="rostopic" type="rostopic" args="pub /shape visualization_msgs/Marker $(arg marker)"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find virtual_racetracks_collection)/config/racetrack.rviz"/>
+
+</launch>
