@@ -19,7 +19,7 @@
 <arg name="p9" value="{x: 5.0, y: 8.0, z: 0.0}"/>
 <arg name="p10" value="{x: 4.0, y: 8.0, z: 0.0}"/>
 <arg name="p11" value="{x: 3.0, y: 8.0, z: 0.0}"/>
-<arg name="p12" value="{x: 2.0, y: 8.0, z: 0.0}"/>
+<arg name="p12" value="{x: 4.0, y: 8.0, z: 0.0}"/>
 <arg name="p13" value="{x: 2.0, y: 2.0, z: 0.0}"/> <!-- Back to the starting point -->
 
   <!-- end of race track coordinates -->
