@@ -2,12 +2,12 @@
   <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="0 0 0 0 0 0 map odom" /> 
   <arg name="h" value="header: {frame_id: 'map', seq: 0, stamp: {nsecs: 0, secs: 0}}" />
   <arg name="orientation" value="orientation: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}" />
-  <arg name="scale" value="scale: {x: 0.3, y: 0.3, z: 0.3}" /> <!-- Increase the scale to make it big -->
-  <arg name="color" value="color: {a: 1.0, b: 0.0, g: 0.0, r: 1.0}"/>
+  <arg name="scale" value="scale: {x: 0.3, y: 0.3, z: 0.3}" />
+  <arg name="color" value="color: {a: 1.0, b: 1.0, g: 0.0, r: 0.0}"/>
   <arg name="position" value="position: {x: 0.0, y: 0.0, z: 0.0}"/>
   <arg name="pose" value="pose: {$(arg orientation), $(arg position)}"/>
   <arg name="lt" value="lifetime: {nsecs: 0, secs: 0}"/>
-  <!-- start of big heart-shaped race track coordinates with X and Y axes interchanged -->
+  <!-- start of big heart-shaped race track coordinates -->
   <arg name="p1" value="{x: 3.0, y: 5.0, z: 0.0}"/>
   <arg name="p2" value="{x: 2.0, y: 4.0, z: 0.0}"/>
   <arg name="p3" value="{x: 2.0, y: 3.0, z: 0.0}"/>
@@ -19,7 +19,7 @@
   <arg name="p9" value="{x: 2.0, y: 7.0, z: 0.0}"/>
   <arg name="p10" value="{x: 2.0, y: 6.0, z: 0.0}"/>
   <arg name="p11" value="{x: 3.0, y: 5.0, z: 0.0}"/>
-  <!-- end of big heart-shaped race track coordinates with X and Y axes interchanged -->
+  <!-- end of big heart-shaped race track coordinates -->
 
   <!-- list of points that draw the racetrack -->
   <arg name="pts" value="points: [$(arg p1),$(arg p2),$(arg p3),$(arg p4),$(arg p5),$(arg p6),$(arg p7),$(arg p8),$(arg p9),$(arg p10),$(arg p11)]"/>  
