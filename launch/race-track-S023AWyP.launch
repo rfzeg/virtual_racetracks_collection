@@ -1,0 +1,35 @@
+<launch>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="0 0 0 0 0 0 map odom" /> 
+  <arg name="h" value="header: {frame_id: 'map', seq: 0, stamp: {nsecs: 0, secs: 0}}" />
+  <arg name="orientation" value="orientation: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}" />
+  <arg name="scale" value="scale: {x: 0.2, y: 0.2, z: 0.2}" />
+  <arg name="color" value="color: {a: 1.0, b: 1.0, g: 0.0, r: 0.0}"/>
+  <arg name="position" value="position: {x: 0.0, y: 0.0, z: 0.0}"/>
+  <arg name="pose" value="pose: {$(arg orientation), $(arg position)}"/>
+  <arg name="lt" value="lifetime: {nsecs: 0, secs: 0}"/>
+  <!-- start of race track coordinates -->
+  <arg name="p1" value="{x: 2.0, y: 2.0, z: 0.0}"/>
+  <arg name="p2" value="{x: 3.0, y: 1.0, z: 0.0}"/>
+  <arg name="p3" value="{x: 4.0, y: 1.0, z: 0.0}"/>
+  <arg name="p4" value="{x: 5.0, y: 2.0, z: 0.0}"/>
+  <arg name="p5" value="{x: 6.0, y: 2.0, z: 0.0}"/>
+  <arg name="p6" value="{x: 7.0, y: 1.0, z: 0.0}"/>
+  <arg name="p7" value="{x: 8.0, y: 1.0, z: 0.0}"/>
+  <arg name="p8" value="{x: 9.0, y: 2.0, z: 0.0}"/>
+  <arg name="p9" value="{x: 9.0, y: 6.0, z: 0.0}"/>
+  <arg name="p10" value="{x: 7.0, y: 8.0, z: 0.0}"/>
+  <arg name="p11" value="{x: 4.0, y: 8.0, z: 0.0}"/>
+  <arg name="p12" value="{x: 3.0, y: 7.0, z: 0.0}"/>
+  <arg name="p13" value="{x: 3.0, y: 5.0, z: 0.0}"/>
+  <arg name="p14" value="{x: 2.0, y: 4.0, z: 0.0}"/>
+  <arg name="p15" value="{x: 2.0, y: 2.0, z: 0.0}"/>
+  <!-- end of race track coordinates -->
+
+  <!-- list of points that draw the racetrack -->
+  <arg name="pts" value="points: [$(arg p1),$(arg p2),$(arg p3),$(arg p4),$(arg p5),$(arg p6),$(arg p7),$(arg p8),$(arg p9),$(arg p10),$(arg p11),$(arg p12),$(arg p13),$(arg p14),$(arg p15)]"/>  
+  
+  <arg name="marker" value="'{$(arg h), ns: 'MWS', id: 0, type: 4, action: 0, $(arg pose), $(arg scale), $(arg color), $(arg lt), $(arg pts)}'" />
+  <node name="pub1" pkg="rostopic" type="rostopic" args="pub /shape visualization_msgs/Marker $(arg marker)"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find virtual_racetracks_collection)/config/racetrack.rviz"/>
+
+</launch>
