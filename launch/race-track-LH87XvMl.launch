@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="0 0 0 0 0 0 map odom" /> 
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="1 4 0 1.57 0 0 map odom" /> 
   <arg name="h" value="header: {frame_id: 'map', seq: 0, stamp: {nsecs: 0, secs: 0}}" />
   <arg name="orientation" value="orientation: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}" />
   <arg name="scale" value="scale: {x: 0.2, y: 0.2, z: 0.2}" />
@@ -32,5 +32,5 @@
   <arg name="marker" value="'{$(arg h), ns: 'MWS', id: 0, type: 4, action: 0, $(arg pose), $(arg scale), $(arg color), $(arg lt), $(arg pts)}'" />
   <node name="pub1" pkg="rostopic" type="rostopic" args="pub /shape visualization_msgs/Marker $(arg marker)"/>
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find virtual_racetracks_collection)/config/racetrack.rviz"/>
-
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
 </launch>
